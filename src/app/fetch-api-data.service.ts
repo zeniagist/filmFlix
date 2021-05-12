@@ -457,3 +457,7 @@ export class RemoveFavoriteMovieService {
     'Something bad happened; please try again later.');
   }
 }
+
+export class FetchApiDataService {
+  constructor() {}
+}
