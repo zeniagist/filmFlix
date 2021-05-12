@@ -14,10 +14,11 @@ View the back-end REST API database [here](https://github.com/zeniagist/myFlix-B
 
 ### Development server
 
-Run the below command for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run the below command for a dev server. 
 ```
 ng serve
 ```
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### Further help
 
