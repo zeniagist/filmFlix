@@ -6,7 +6,7 @@ This web application provides users with the access to information about differe
 
 **See the hosted project [here](https://zeniagist.github.io/filmFlix/).**
 
-View the repo built with React [here](https://github.com/zeniagist/myFlix-Client).
+View the repository built with React [here](https://github.com/zeniagist/myFlix-Client).
 
 View the back-end REST API database [here](https://github.com/zeniagist/myFlix-Backend).
 
