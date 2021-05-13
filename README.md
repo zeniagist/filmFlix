@@ -8,7 +8,7 @@ View the website built with React [here](https://github.com/zeniagist/myFlix-Cli
 
 View the back-end REST API database [here](https://github.com/zeniagist/myFlix-Backend).
 
-![movieDB Showcase](./assets/movieDB.gif)
+![filmFlix Showcase](./assets/filmFlixshowcase.gif)
 
 ## Quick Start 🚀
 
