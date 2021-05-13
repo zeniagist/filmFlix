@@ -1,26 +1,24 @@
 # filmFlix
 
-filmFlix is the client-side of a movie database application built using Angular with an existing server-side (REST API) and MongoDB database. 
+filmFlix is the client-side of a movie database application built using Angular with an existing server-side (REST API) and MongoDB database.
 
-This web application provides users with the access to information about different movies, directors and genres. Users are able to sign up, update personal information, and create a list of their favorite movies. 
+This web application provides users with the access to information about different movies, directors and genres. Users are able to sign up, update personal information, and create a list of their favorite movies.
 
-**See the hosted project [here](https://zeniagist.github.io/filmFlix/).**
-
-View the repository built with React [here](https://github.com/zeniagist/myFlix-Client).
+View the website built with React [here](https://github.com/zeniagist/myFlix-Client).
 
 View the back-end REST API database [here](https://github.com/zeniagist/myFlix-Backend).
 
-![filmFlix Showcase](./assets/filmFlixshowcase.gif)
+![filmFilx Showcase](./assets/filmFilxshowcase.gif)
 
 ## Quick Start 🚀
 
 ### Development server
 
-Run the below command for a dev server. 
-```
+Run the below command for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+```bash
 ng serve
 ```
-Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### Further help
 
