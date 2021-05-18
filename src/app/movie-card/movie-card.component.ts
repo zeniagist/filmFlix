@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchApiDataService } from '../fetch-api-data.service'
 import { GetAllMoviesService } from '../fetch-api-data.service';
 
 @Component({
