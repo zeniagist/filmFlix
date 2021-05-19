@@ -28,8 +28,9 @@ import { MovieGenreComponent } from './movie-genre/movie-genre.component';
 import { MovieDirectorComponent } from './movie-director/movie-director.component';
 import { MovieSynopsisComponent } from './movie-synopsis/movie-synopsis.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserRemoveAccountComponent } from './user-remove-account/user-remove-account.component';
 import { UserProfileDeleteComponent } from './user-profile-delete/user-profile-delete.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 const appRoutes: Routes = [
@@ -49,8 +50,9 @@ const appRoutes: Routes = [
     MovieDirectorComponent,
     MovieSynopsisComponent,
     UserProfileComponent,
-    UserRemoveAccountComponent,
-    UserProfileDeleteComponent
+    UserProfileDeleteComponent,
+    NavBarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
