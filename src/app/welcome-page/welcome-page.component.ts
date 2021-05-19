@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
+// Components
 import { UserLoginFormComponent } from '../user-login-form/user-login-form.component';
 import { UserRegistrationFormComponent } from '../user-registration-form/user-registration-form.component';
+
+// Angular material
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({

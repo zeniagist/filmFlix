@@ -1,10 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { UserLoginService } from '../fetch-api-data.service';
+// API call
+import { FetchApiDataService } from '../fetch-api-data.service';
 
+// Angular material
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class UserLoginFormComponent implements OnInit {
   @Input() userData ={ Username: '', Password: ''};
 
   constructor(
-    public fetchApiData: UserLoginService,
+    public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public snackBar: MatSnackBar,
     public router: Router
@@ -26,7 +28,7 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void { }
 
   /**
-   * function to login user
+   * login user
    */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {

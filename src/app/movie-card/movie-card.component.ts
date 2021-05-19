@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 // API Calls
-// import { GetAllMoviesService, AddFavoriteMovieService } from '../fetch-api-data.service';
 import { FetchApiDataService } from '../fetch-api-data.service';
 
 // Angular material
