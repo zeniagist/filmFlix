@@ -67,7 +67,6 @@ export class MovieCardComponent implements OnInit {
       });
       const index = this.favoriteMovieIds.indexOf(id);
       return this.favoriteMovieIds.splice(index, 1);
-      // this.getFavoriteMovies();
     } else {
       this.fetchApiData.addFavorite(id).subscribe((response: any) => {
         this.snackBar.open('Added to favorites!', 'OK', {
@@ -76,7 +75,6 @@ export class MovieCardComponent implements OnInit {
       });
     }
     return this.favoriteMovieIds.push(id);
-    // this.getFavoriteMovies();
   }
 
 }
