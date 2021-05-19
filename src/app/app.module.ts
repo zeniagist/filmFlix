@@ -24,6 +24,12 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { MovieGenreComponent } from './movie-genre/movie-genre.component';
+import { MovieDirectorComponent } from './movie-director/movie-director.component';
+import { MovieSynopsisComponent } from './movie-synopsis/movie-synopsis.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserRemoveAccountComponent } from './user-remove-account/user-remove-account.component';
+import { UserProfileDeleteComponent } from './user-profile-delete/user-profile-delete.component';
 
 
 const appRoutes: Routes = [
@@ -38,7 +44,13 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    MovieGenreComponent,
+    MovieDirectorComponent,
+    MovieSynopsisComponent,
+    UserProfileComponent,
+    UserRemoveAccountComponent,
+    UserProfileDeleteComponent
   ],
   imports: [
     BrowserModule,
