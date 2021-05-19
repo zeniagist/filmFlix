@@ -1,11 +1,160 @@
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/internal/operators';
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://myflix-zag.herokuapp.com/';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FetchApiDataService {
+  private isAuthenticated = false;
+  private token: string = '';
+
+  constructor(private http: HttpClient, private router: Router) {}  
+
+  // Non-typed response extraction
+  private extractResponseData(res: Response | Object): any {
+    const body = res;
+    return body || { };
+  }
+
+  // get token from local storage
+  getToken() {
+    return this.token;
+  }
+
+  // get authentication status of user
+  getIsAuth() {
+    return this.isAuthenticated;
+  }
+
+  // get username
+  getUsername() {
+    const username = localStorage.getItem('user');
+    return username;
+  }
+
+  // log user out
+  logout(): void {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+  }
+
+  // set user authentication to true
+  setAuth() {
+    this.isAuthenticated = true;
+  }
+
+  /**
+   * 
+   * API Calls
+   * 
+  **/
+
+  // get all movies
+  getAllMovies(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(apiUrl + 'movies', {headers: new HttpHeaders(
+      {
+        Authorization: 'Bearer ' + token,
+      })
+    }).pipe(
+      map(this.extractResponseData),
+      catchError(this.getAllMoviesHandleError)
+    );
+
+  }
+
+  private getAllMoviesHandleError(error: HttpErrorResponse): any {
+    if (error.error instanceof ErrorEvent) {
+      console.error('Some error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
+      );
+    }
+    return throwError('Error extracting movie data, please contact the developer.');
+  }
+
+  // get user account info
+  getUser(user: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http
+      .get(apiUrl + `users/${user}`, {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.getUserHandleError));
+  }
+
+  private getUserHandleError(error: HttpErrorResponse): any {
+    if (error.error instanceof ErrorEvent) {
+      console.error('Some error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
+      );
+    }
+    return throwError('Error retrieving user account data, please contact the developer.');
+  }
+
+  // Add a movie to favorite movies
+  addFavorite(id: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    return this.http.post(apiUrl + `users/${user}/Movies/${id}`, id, {headers: new HttpHeaders(
+      {
+        Authorization: 'Bearer ' + token,
+      })
+    }).pipe(
+      map(this.extractResponseData),
+      catchError(this.addFavoriteHandleError)
+    );
+  }
+
+  private addFavoriteHandleError(error: HttpErrorResponse): any {
+    if (error.error instanceof ErrorEvent) {
+      console.error('Some error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
+      );
+    }
+    return throwError('Error adding movie to favorites list, please contact the developer.');
+  }
+
+  // Delete a movie from favorites
+  removeFavorite(id: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    return this.http.delete(apiUrl + `users/${user}/Movies/${id}`, {headers: new HttpHeaders(
+      {
+        Authorization: 'Bearer ' + token,
+      })
+    }).pipe(
+      map(this.extractResponseData),
+      catchError(this.removeFavoriteHandleError)
+    );
+  }
+
+  private removeFavoriteHandleError(error: HttpErrorResponse): any {
+    if (error.error instanceof ErrorEvent) {
+      console.error('Some error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
+      );
+    }
+    return throwError('Error adding movie to favorites list, please contact the developer.');
+  }
+
+}
 
 // User registration
 @Injectable({
