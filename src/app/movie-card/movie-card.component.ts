@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // API Calls
+// import { GetAllMoviesService, AddFavoriteMovieService } from '../fetch-api-data.service';
 import { FetchApiDataService } from '../fetch-api-data.service';
 
 // Angular material
@@ -17,8 +18,6 @@ export class MovieCardComponent implements OnInit {
   favoriteMovieIds: any[] = [];
 
   constructor(
-    // public fetchApiData: GetAllMoviesService,
-    // public addToFavorite: AddFavoriteMovieService,
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
@@ -46,15 +45,21 @@ export class MovieCardComponent implements OnInit {
   getFavoriteMovies(): void {
     const user = localStorage.getItem('user');
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
-      this.favoriteMovieIds = resp[0].FavoriteMovies;
+      this.favoriteMovieIds = resp.FavoriteMovies;
     });
   }
+
+  // Checks the movieID against the list of favorites and returns a boolean.
+  isFavorite(movieID: string): boolean {
+    console.log("Movie ID " + movieID + "favorite check");
+    return this.favoriteMovieIds.includes(movieID);
+  };
  
   /**
    * add or delete movie from favorites
    **/ 
   onToggleFavoriteMovie(id: string): any {
-    if (this.favoriteMovieIds.includes(id)) {
+    if (this.isFavorite(id)) {
       this.fetchApiData.removeFavorite(id).subscribe((resp: any) => {
         this.snackBar.open('Removed from favorites!', 'OK', {
           duration: 2000,
@@ -62,6 +67,7 @@ export class MovieCardComponent implements OnInit {
       });
       const index = this.favoriteMovieIds.indexOf(id);
       return this.favoriteMovieIds.splice(index, 1);
+      // this.getFavoriteMovies();
     } else {
       this.fetchApiData.addFavorite(id).subscribe((response: any) => {
         this.snackBar.open('Added to favorites!', 'OK', {
@@ -70,6 +76,7 @@ export class MovieCardComponent implements OnInit {
       });
     }
     return this.favoriteMovieIds.push(id);
+    // this.getFavoriteMovies();
   }
 
 }
