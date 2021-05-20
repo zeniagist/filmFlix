@@ -64,6 +64,11 @@ export class MovieCardComponent implements OnInit {
   /**
    * Synopsis dialog
    **/ 
+   openSynopsisDialog(synopsis: string): void {
+    this.dialog.open(MovieSynopsisComponent, {
+      data: { synopsis },
+    });
+  }
 
   /**
    * check if movie is in favorites
