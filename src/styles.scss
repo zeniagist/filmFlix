@@ -30,22 +30,17 @@ body {
   margin: 0;
   font-family: "Libre Baskerville", sans-serif;
   box-sizing: border-box;
-  background-image: linear-gradient(
-    to right top,
-    #c7a4ff,
-    #ae8ce5,
-    #9575cc,
-    #7d5fb4,
-    #65499c
-  );
-  // background-image: linear-gradient(
-  //   to right top,
-  //   #c7a4ff,
-  //   #9777d1,
-  //   #684da4,
-  //   #3a2579,
-  //   #000051
-  // );
+  background: linear-gradient(
+      to right top,
+      #c7a4ff,
+      #ae8ce5,
+      #9575cc,
+      #7d5fb4,
+      #65499c
+    )
+    no-repeat center center;
+  background-attachment: fixed;
+  background-size: cover;
   font-size: 20px;
 }
 
