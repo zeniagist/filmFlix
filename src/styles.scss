@@ -1,21 +1,123 @@
 @import "~@angular/material/theming";
+
+// Be sure that you only ever include 'mat-core' mixin once!
+// it should not be included for each theme.
 @include mat-core();
 
-$myFlix-Angular-client-primary: mat-palette($mat-deep-purple, 300);
-$myFlix-Angular-client-accent: mat-palette($mat-indigo, 900);
-$myFlix-Angular-client-warn: mat-palette($mat-purple, A400);
-
-$myFlix-Angular-client-theme: mat-light-theme(
-  (
-    color: (
-      primary: $myFlix-Angular-client-primary,
-      accent: $myFlix-Angular-client-accent,
-      warn: $myFlix-Angular-client-warn,
-    ),
-  )
+// define a real custom palette (using http://mcg.mbitson.com)
+$bv-primary: (
+  50: #f6f1ff,
+  100: #e8dbff,
+  200: #d9c4ff,
+  300: #caacff,
+  400: #be9aff,
+  500: #b388ff,
+  600: #ac80ff,
+  700: #a375ff,
+  800: #9a6bff,
+  900: #8b58ff,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #fdfcff,
+  A700: #ebe3ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 
-@include angular-material-theme($myFlix-Angular-client-theme);
+$bv-accent: (
+  50: #eaf8fe,
+  100: #caedfd,
+  200: #a7e1fb,
+  300: #84d5f9,
+  400: #69ccf8,
+  500: #4fc3f7,
+  600: #48bdf6,
+  700: #3fb5f5,
+  800: #36aef3,
+  900: #26a1f1,
+  A100: #ffffff,
+  A200: #f9fdff,
+  A400: #c6e7ff,
+  A700: #addcff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$bv-warn: (
+  50: #fef0f4,
+  100: #fed9e3,
+  200: #fdc0d0,
+  300: #fca7bd,
+  400: #fb94af,
+  500: #fa81a1,
+  600: #f97999,
+  700: #f96e8f,
+  800: #f86485,
+  900: #f65174,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffeef1,
+  A700: #ffd4dd,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+// mandatory stuff for theming
+$bv-palette-primary: mat-palette($bv-primary);
+$bv-palette-accent: mat-palette($bv-accent);
+$bv-palette-warn: mat-palette($bv-warn);
+
+// include the custom theme components into a theme object
+$bv-theme: mat-light-theme(
+  $bv-palette-primary,
+  $bv-palette-accent,
+  $bv-palette-warn
+);
+
+// include the custom theme object into the angular material theme
+@include angular-material-theme($bv-theme);
 
 // Global Defaults
 
@@ -30,15 +132,7 @@ body {
   margin: 0;
   font-family: "Libre Baskerville", sans-serif;
   box-sizing: border-box;
-  background: linear-gradient(
-      to right top,
-      #c7a4ff,
-      #ae8ce5,
-      #9575cc,
-      #7d5fb4,
-      #65499c
-    )
-    no-repeat center center;
+  background: url(./assets/sparkles.jpg) no-repeat center center;
   background-attachment: fixed;
   background-size: cover;
   font-size: 20px;
@@ -52,4 +146,5 @@ body {
 
 h1 {
   color: white;
+  text-shadow: 1px 1px white;
 }
