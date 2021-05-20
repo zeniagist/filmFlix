@@ -132,7 +132,8 @@ body {
   margin: 0;
   font-family: "Libre Baskerville", sans-serif;
   box-sizing: border-box;
-  background: url(./assets/sparkles.jpg) no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(./assets/sparkles.jpg) no-repeat center center;
   background-attachment: fixed;
   background-size: cover;
   font-size: 20px;
