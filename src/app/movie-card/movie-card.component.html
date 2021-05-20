@@ -17,6 +17,11 @@
       <button
           mat-button
           color="accent"
+          (click)=
+          "openDirectorDialog(
+            movie.Director.Name,
+            movie.Director.Bio
+          )"
       >
           Director
       </button>

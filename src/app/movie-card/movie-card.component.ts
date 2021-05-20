@@ -55,6 +55,11 @@ export class MovieCardComponent implements OnInit {
   /**
    * Director dialog
    **/ 
+   openDirectorDialog(name: string, bio: string): void {
+    this.dialog.open(MovieDirectorComponent, {
+      data: { name, bio },
+    });
+  }
 
   /**
    * Synopsis dialog
