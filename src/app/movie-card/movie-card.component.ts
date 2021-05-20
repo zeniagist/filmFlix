@@ -7,6 +7,11 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+// Components
+import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.component';
+import { MovieDirectorComponent } from '../movie-director/movie-director.component';
+import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
+
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
@@ -37,6 +42,23 @@ export class MovieCardComponent implements OnInit {
       return this.movies;
     });
   }
+
+  /**
+   * Genre dialog
+   **/ 
+   openGenreDialog(name: string, description: string): void {
+    this.dialog.open(MovieGenreComponent, {
+      data: { name, description },
+    });
+  }
+
+  /**
+   * Director dialog
+   **/ 
+
+  /**
+   * Synopsis dialog
+   **/ 
 
   /**
    * check if movie is in favorites

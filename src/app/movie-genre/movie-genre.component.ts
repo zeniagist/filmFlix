@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+
+// Angular Material
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-movie-genre',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieGenreComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      name: string;
+      description: string;
+    }
+  ) { }
 
   ngOnInit(): void {
   }
