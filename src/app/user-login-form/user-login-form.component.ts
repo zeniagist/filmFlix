@@ -15,6 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./user-login-form.component.scss']
 })
 export class UserLoginFormComponent implements OnInit {
+  isLoading = false;
 
   @Input() userData ={ Username: '', Password: ''};
 
@@ -31,7 +32,9 @@ export class UserLoginFormComponent implements OnInit {
    * login user
    */
   loginUser(): void {
+    this.isLoading = true;
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {
+      this.isLoading = true;
       this.dialogRef.close();
       localStorage.setItem('user', response.user.Username);
       localStorage.setItem('token', response.token);
@@ -40,6 +43,7 @@ export class UserLoginFormComponent implements OnInit {
       });
       this.router.navigate(['movies']);
     }, (response) => {
+      this.isLoading = true;
       console.log(response);
       this.snackBar.open(response, 'OK', {
         duration: 2000

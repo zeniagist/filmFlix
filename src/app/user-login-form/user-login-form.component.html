@@ -1,9 +1,15 @@
-<mat-card>
-  <mat-card-header>
+<mat-card class="login-card">
+  <mat-card-header class="login-header">
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form>
+    <mat-spinner
+      *ngIf="isLoading"
+      class="login-spinner"
+      color="primary"
+      diameter="35"
+    ></mat-spinner>
+    <form class="login-form-container">
       <mat-form-field>
         <input
           matInput
