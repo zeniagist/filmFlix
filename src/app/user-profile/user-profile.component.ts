@@ -8,6 +8,9 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+// Component
+import { UserProfileUpdateComponent } from '../user-profile-update/user-profile-update.component';
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -32,8 +35,13 @@ export class UserProfileComponent implements OnInit {
   }
 
   /**
-  * Edit Profile
+  * Updates Profile
   **/ 
+   editUserData(): void {
+    this.dialog.open(UserProfileUpdateComponent, {
+      width: '350px'
+    });
+  }
 
   /**
   * Delete Profile
