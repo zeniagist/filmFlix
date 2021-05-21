@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 // Component
 import { UserProfileUpdateComponent } from '../user-profile-update/user-profile-update.component';
+import { UserProfileDeleteComponent } from '../user-profile-delete/user-profile-delete.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -47,19 +48,7 @@ export class UserProfileComponent implements OnInit {
   * Delete Profile
   **/  
   deleteUser(): void {
-    let check = confirm('Are you sure you want to delete your profile?');
-    if (check) {
-      this.fetchApiData.deleteUser().subscribe(() => {
-        console.log('Profile deleted');
-        localStorage.clear();
-        this.router.navigate(['welcome']);
-        this.snackBar.open('Profile deleted', 'OK', {
-          duration: 2000
-        });
-      });
-    } else {
-      window.location.reload();
-    }
+    this.dialog.open(UserProfileDeleteComponent);
   }  
 
   /**

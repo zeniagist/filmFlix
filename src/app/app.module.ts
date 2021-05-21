@@ -33,6 +33,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserProfileUpdateComponent } from './user-profile-update/user-profile-update.component';
+import { UserProfileDeleteComponent } from './user-profile-delete/user-profile-delete.component';
 
 
 const appRoutes: Routes = [
@@ -55,7 +56,8 @@ const appRoutes: Routes = [
     UserProfileComponent,
     NavBarComponent,
     FooterComponent,
-    UserProfileUpdateComponent
+    UserProfileUpdateComponent,
+    UserProfileDeleteComponent
   ],
   imports: [
     BrowserModule,
