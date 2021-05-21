@@ -10,7 +10,7 @@ View the website built with React [here](https://github.com/zeniagist/myFlix-Cli
 
 View the back-end REST API database [here](https://github.com/zeniagist/myFlix-Backend).
 
-![filmFilx Showcase](./assets/filmfilxshowcase.gif)
+![filmFilx Showcase](./src/assets/filmfilxshowcase.gif)
 
 ## Quick Start 🚀
 
