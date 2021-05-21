@@ -4,11 +4,13 @@ filmFlix is the client-side of a movie database application built using Angular 
 
 This web application provides users with the access to information about different movies, directors and genres. Users are able to sign up, update personal information, and create a list of their favorite movies.
 
+**See the hosted project [here](https://zeniagist.github.io/filmflix).**
+
 View the website built with React [here](https://github.com/zeniagist/myFlix-Client).
 
 View the back-end REST API database [here](https://github.com/zeniagist/myFlix-Backend).
 
-![filmFilx Showcase](./assets/filmFilxshowcase.gif)
+![filmFilx Showcase](./assets/filmfilxshowcase.gif)
 
 ## Quick Start 🚀
 
