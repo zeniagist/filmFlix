@@ -37,61 +37,7 @@ export class UserProfileComponent implements OnInit {
 
   /**
   * Delete Profile
-  **/    
-
-  /**
-   * Function to get user information's from API endpoint
-   */
-  getUser(): void {
-    const user = localStorage.getItem('user');
-    this.fetchApiData.getUser(user).subscribe((res: any) => {
-      this.user = res;
-      this.getMovies();
-    });
-  }
-
-  /**
-   * Function to get all movies from API endpoint
-   */
-  getMovies(): void {
-    this.fetchApiData.getAllMovies().subscribe((res: any) => {
-      this.movies = res;
-      this.filterFavorites();
-    });
-  }
-
-  /**
-   * Function to filter in all movies for user favorites
-   * @returns favorites
-   */
-  filterFavorites(): void {
-    this.movies.forEach((movie: any) => {
-      if (this.user.FavoriteMovies.includes(movie._id)) {
-        this.favorites.push(movie);
-      }
-    });
-    return this.favorites;
-  }
-
-  /**
-   * Function to delete favorites from user
-   * @param id
-   * @param title
-   */
-  removeFavorites(id: string, title: string): void {
-    this.fetchApiData.removeFavorite(id).subscribe(() => {
-      this.snackBar.open(`${title} has been removed from your favorites!`, 'OK', {
-        duration: 2000
-      });
-      setTimeout(function () {
-        window.location.reload();
-      }, 2000);
-    });
-  }
-
-  /**
-   * Function that allows the user to delete their profile
-   */
+  **/  
   deleteUser(): void {
     let check = confirm('Are you sure you want to delete your profile?');
     if (check) {
@@ -106,5 +52,53 @@ export class UserProfileComponent implements OnInit {
     } else {
       window.location.reload();
     }
+  }  
+
+  /**
+   * get user data
+   */
+  getUser(): void {
+    const user = localStorage.getItem('user');
+    this.fetchApiData.getUser(user).subscribe((res: any) => {
+      this.user = res;
+      this.getMovies();
+    });
   }
+
+  /**
+   * retrieve all favorited movies
+   */
+  getMovies(): void {
+    this.fetchApiData.getAllMovies().subscribe((res: any) => {
+      this.movies = res;
+      this.filterFavorites();
+    });
+  }
+
+  /**
+   * filter in all movies for user favorites
+   */
+  filterFavorites(): void {
+    this.movies.forEach((movie: any) => {
+      if (this.user.FavoriteMovies.includes(movie._id)) {
+        this.favorites.push(movie);
+      }
+    });
+    return this.favorites;
+  }
+
+  /**
+   * delete favorites from user
+   */
+  removeFavorites(id: string, title: string): void {
+    this.fetchApiData.removeFavorite(id).subscribe(() => {
+      this.snackBar.open(`${title} has been removed from your favorites!`, 'OK', {
+        duration: 2000
+      });
+      setTimeout(function () {
+        window.location.reload();
+      }, 2000);
+    });
+  }
+  
 }
