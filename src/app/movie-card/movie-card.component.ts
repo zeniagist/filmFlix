@@ -33,8 +33,8 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * retrieve all movies
-   **/ 
+  * retrieve all movies
+  **/ 
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -44,8 +44,8 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * Genre dialog
-   **/ 
+  * Genre dialog
+  **/ 
    openGenreDialog(name: string, description: string): void {
     this.dialog.open(MovieGenreComponent, {
       data: { name, description },
@@ -53,8 +53,8 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * Director dialog
-   **/ 
+  * Director dialog
+  **/ 
    openDirectorDialog(name: string, bio: string): void {
     this.dialog.open(MovieDirectorComponent, {
       data: { name, bio },
@@ -62,8 +62,8 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * Synopsis dialog
-   **/ 
+  * Synopsis dialog
+  **/ 
    openSynopsisDialog(synopsis: string): void {
     this.dialog.open(MovieSynopsisComponent, {
       data: { synopsis },
@@ -71,8 +71,8 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * check if movie is in favorites
-   **/ 
+  * check if movie is in favorites
+  **/ 
   getFavoriteMovies(): void {
     const user = localStorage.getItem('user');
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
@@ -87,8 +87,8 @@ export class MovieCardComponent implements OnInit {
   };
  
   /**
-   * add or delete movie from favorites
-   **/ 
+  * add or delete movie from favorites
+  **/ 
   onToggleFavoriteMovie(id: string): any {
     if (this.isFavorite(id)) {
       this.fetchApiData.removeFavorite(id).subscribe((resp: any) => {

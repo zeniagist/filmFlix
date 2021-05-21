@@ -15,7 +15,6 @@ export class MovieDirectorComponent implements OnInit {
     public data: {
       name: string;
       bio: string;
-      birth: string;
     }
   ) { }
 
